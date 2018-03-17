@@ -1,0 +1,8 @@
+{
+  "name": "jp.tamagotchi.engine.ts",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/pichardoJ/jp.tamagotchi.engine.ts.git",
+  "author": "<j.pichardo@tuta.io>",
+  "license": "MIT"
+}

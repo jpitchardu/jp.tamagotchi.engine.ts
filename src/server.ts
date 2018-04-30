@@ -4,7 +4,7 @@ import {
   ServiceDefinition
 } from 'grpc';
 
-import { ServiceDefinitionContract } from './services';
+import { IServiceDefinition } from './services';
 
 export class Server {
   private server: GrpcServer;
@@ -12,10 +12,10 @@ export class Server {
   constructor(
     private grpcServer: GrpcServer,
     private config: any,
-    private services: [ServiceDefinitionContract<any>]
+    private services: Array<IServiceDefinition<any>>
   ) {
     this.services.forEach(service =>
-      this.server.addService(service.service, service.implemetation)
+      this.server.addService(service.service, service.implementation)
     );
   }
 

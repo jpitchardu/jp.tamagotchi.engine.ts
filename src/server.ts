@@ -6,7 +6,7 @@ import {
 
 import { ServiceDefinitionContract } from './services';
 
-class Server {
+export class Server {
   private server: GrpcServer;
 
   constructor(

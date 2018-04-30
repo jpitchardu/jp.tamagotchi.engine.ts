@@ -4,5 +4,22 @@
   "main": "index.js",
   "repository": "https://github.com/pichardoJ/jp.tamagotchi.engine.ts.git",
   "author": "<j.pichardo@tuta.io>",
-  "license": "MIT"
+  "license": "MIT",
+  "scripts": {
+    "format": "prettier",
+    "test": "jest",
+    "bundle": "webpack"
+  },
+  "devDependencies": {
+    "awesome-typescript-loader": "^5.0.0",
+    "jest": "^22.4.3",
+    "prettier": "^1.12.1",
+    "source-map-loader": "^0.2.3",
+    "tslint": "^5.9.1",
+    "typescript": "^2.8.3",
+    "webpack": "^4.6.0"
+  },
+  "dependencies": {
+    "fndi": "^0.1.2"
+  }
 }

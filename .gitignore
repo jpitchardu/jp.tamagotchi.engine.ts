@@ -68,6 +68,6 @@ typings/
 # dotenv environment variables file
 .env
 
-
+proto/*
 
 # End of https://www.gitignore.io/api/code,node

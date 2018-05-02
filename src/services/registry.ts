@@ -17,7 +17,8 @@ export function registration(registry) {
         protoPackage => protoPackage.engine
       ).EngineService.service;
     },
-    name: 'protoEngineService'
+    name: 'protoEngineService',
+    persist: true
   });
   registry({ type: EngineService });
 }

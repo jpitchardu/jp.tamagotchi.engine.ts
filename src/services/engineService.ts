@@ -1,16 +1,13 @@
-import { promisify } from '../utils/index';
+import { Engine } from '../engine/engine';
 
 export class EngineService {
-  constructor(private readonly protoEngineService) {
-    this.protoEngineService.execute = promisify(
-      this.protoEngineService.execute
-    );
-  }
+  constructor(private readonly engine: Engine) {}
 
   public execute(request: IExecutionRequest): Promise<IExecutionResponse> {
-    return this.protoEngineService
-      .execute(request)
-      .then(res => res as IExecutionResponse);
+    return this.engine
+      .render(request.fileName)
+      .then(res => ({ successful: true }))
+      .catch(err => ({ message: err.toString(), successful: false }));
   }
 }
 
@@ -19,5 +16,6 @@ export interface IExecutionRequest {
 }
 
 export interface IExecutionResponse {
+  message?: string;
   successful: boolean;
 }

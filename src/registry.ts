@@ -2,7 +2,7 @@ import { Server as GrpcServer } from 'grpc';
 
 import { Server } from './server';
 
-import { require } from './utils';
+import { require } from './utils/index';
 
 import { EngineService } from './services/engineService';
 

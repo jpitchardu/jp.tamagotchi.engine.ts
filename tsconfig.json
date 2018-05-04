@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "outDir": "./dist",
+    "allowJs": true,
+    "target": "es2015",
+    "typeRoots": ["./node_modules/@types"],
+    "moduleResolution": "node",
+    "baseUrl": "src/",
+    "paths": {
+      "@config/*": ["config/*"],
+      "@engine/*": ["engine/*"],
+      "@services/*": ["services/*"],
+      "@utils/*": ["utils/*"]
+    }
+  },
+  "include": ["./src/**/*"]
+}

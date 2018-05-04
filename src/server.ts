@@ -15,14 +15,15 @@ export class Server {
     private services: Array<IServiceDefinition<any>>
   ) {
     this.services.forEach(service =>
-      this.server.addService(service.service, service.implementation)
+      this.grpcServer.addService(service.service, service.implementation)
     );
   }
 
   public start() {
-    this.server.bind(
+    this.grpcServer.bind(
       `${this.config.ip}:${this.config.port}`,
       ServerCredentials.createInsecure()
     );
+    this.grpcServer.start();
   }
 }

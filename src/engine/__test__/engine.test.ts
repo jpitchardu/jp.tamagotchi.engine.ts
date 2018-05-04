@@ -1,7 +1,6 @@
 import * as scope from 'fndi';
-import { VM } from 'vm2';
 
-import { Engine } from '../engine';
+import { Engine } from '@engine/engine';
 
 import { Fake } from './script.fake';
 
@@ -9,8 +8,8 @@ const mockFn = jest.fn();
 
 const registration = registry => {
   registry({
+    name: 'vm',
     persist: true,
-    type: VM,
     value: {
       run: mockFn.mockImplementation(code => Fake)
     }

@@ -2133,9 +2133,9 @@ flush-write-stream@^1.0.0:
     inherits "^2.0.1"
     readable-stream "^2.0.4"
 
-fndi@latest:
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/fndi/-/fndi-0.2.0.tgz#9517410d35308bf3fb7eb22c8605f6f336fe583f"
+fndi@0.3.0:
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/fndi/-/fndi-0.3.0.tgz#090524681f70421de62df4be408adee4210074b4"
 
 for-in@^1.0.1, for-in@^1.0.2:
   version "1.0.2"

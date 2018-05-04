@@ -29,6 +29,11 @@ const registration = registry => {
   });
 
   registry({
+    name: 'logFactory',
+    value: () => ({ info: mockFn(), critical: mockFn() })
+  });
+
+  registry({
     name: 'services',
     value: [{ service: {}, implementation: {} }]
   });

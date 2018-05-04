@@ -1,6 +1,6 @@
 import { Engine } from '../engine/engine';
 
-import { ICallback } from '@utils/index';
+import { ICallback } from '../utils';
 
 export class EngineService {
   constructor(private readonly engine: Engine) {}

@@ -4,7 +4,7 @@ import {
   ServiceDefinition
 } from 'grpc';
 
-import { IServiceDefinition } from '@services/index';
+import { IServiceDefinition } from './services';
 
 export class Server {
   private logger: any;
@@ -18,7 +18,7 @@ export class Server {
     this.services.forEach(service =>
       this.grpcServer.addService(service.service, service.implementation)
     );
-    this.logger = logFactory(Server.name);
+    this.logger = logFactory('Server');
   }
 
   public start(): IServerStartResult {

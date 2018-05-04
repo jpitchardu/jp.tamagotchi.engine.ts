@@ -3,11 +3,14 @@ import { Server as GrpcServer } from 'grpc';
 
 import { Server } from './server';
 
-import { EngineService } from '@services/engineService';
+import { EngineService } from './services/index';
 
 export function registration(env) {
   return registry => {
-    registry({ name: 'config', value: require(`config/config.${env}`) });
+    registry({
+      name: 'config',
+      value: require(env ? `config/config.${env}` : 'config/config')
+    });
 
     registry({
       factory: resolve =>

@@ -15,7 +15,7 @@ module.exports = {
       {
         // Include ts, tsx, and js files.
         test: /\.tsx?$/,
-        exclude: /node_modules/,
+        exclude: [/node_modules/],
         loader: 'ts-loader'
       }
     ]

@@ -13,6 +13,8 @@
     "bundle": "yarn format && yarn lint && yarn test && yarn webpack"
   },
   "devDependencies": {
+    "@types/bunyan": "^1.8.4",
+    "@types/node": "^7.0.5",
     "@types/jest": "^22.2.3",
     "awesome-typescript-loader": "^5.0.0",
     "babel-loader": "^7.1.4",
@@ -20,13 +22,14 @@
     "prettier": "^1.12.1",
     "source-map-loader": "^0.2.3",
     "ts-jest": "^22.4.4",
+    "ts-loader": "^4.2.0",
     "tslint": "^5.9.1",
     "typescript": "^2.8.3",
     "webpack": "^4.6.0",
     "webpack-cli": "^2.0.15"
   },
   "dependencies": {
-    "@types/node": "^7.0.5",
+    "bunyan": "^1.8.12",
     "fndi": "0.3.0",
     "grpc": "^1.10.1",
     "vm2": "^3.5.2"

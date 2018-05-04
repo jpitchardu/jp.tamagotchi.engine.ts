@@ -1,14 +1,23 @@
+import * as bunyan from 'bunyan';
 import { Server as GrpcServer } from 'grpc';
 
 import { Server } from './server';
 
-import { require } from './utils/index';
-
-import { EngineService } from './services/engineService';
+import { EngineService } from '@services/engineService';
 
 export function registration(env) {
   return registry => {
     registry({ name: 'config', value: require(`config/config.${env}`) });
+
+    registry({
+      factory: resolve =>
+        bunyan.createLogger({ name: 'TSEngineServiceLogger' }),
+      name: 'log'
+    });
+    registry({
+      factory: resolve => className => resolve('log').child({ className }),
+      name: 'logFactory'
+    });
 
     registry({
       factory: resolve => {
@@ -18,12 +27,13 @@ export function registration(env) {
             service: resolve('protoEngineService')
           }
         ];
+        const logFactory = resolve('logFactory');
 
         const grpcServer = new GrpcServer();
 
         const config = resolve('config');
 
-        return new Server(grpcServer, config, services);
+        return new Server(grpcServer, config, services, logFactory);
       },
       type: Server
     });

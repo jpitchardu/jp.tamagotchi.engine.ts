@@ -3,6 +3,7 @@ import * as scope from 'fndi';
 import { Server as GrpcServer, ServerCredentials } from 'grpc';
 
 import { IServiceDefinition } from 'services';
+
 import { IConfig } from '@config/configContract';
 
 import { Server } from '../server';

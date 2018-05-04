@@ -1,8 +1,10 @@
 import * as scope from 'fndi';
 
-import { IServiceDefinition } from 'services';
-
 import { Server as GrpcServer, ServerCredentials } from 'grpc';
+
+import { IServiceDefinition } from 'services';
+import { IConfig } from '@config/configContract';
+
 import { Server } from '../server';
 
 const mockFn = jest.fn;
@@ -39,7 +41,7 @@ describe(
     let sut: Server;
 
     let grpcServerFake: GrpcServer;
-    let configFake: any;
+    let configFake: IConfig;
     let servicesFake: Array<IServiceDefinition<any>>;
 
     beforeAll(() => {

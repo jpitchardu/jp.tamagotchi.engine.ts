@@ -4,7 +4,7 @@ import {
   ServiceDefinition
 } from 'grpc';
 
-import { IServiceDefinition } from './services';
+import { IServiceDefinition } from '@services/index';
 
 export class Server {
   private server: GrpcServer;
@@ -20,10 +20,14 @@ export class Server {
   }
 
   public start() {
-    this.grpcServer.bind(
-      `${this.config.ip}:${this.config.port}`,
-      ServerCredentials.createInsecure()
-    );
-    this.grpcServer.start();
+    try {
+      this.grpcServer.bind(
+        `${this.config.ip}:${this.config.port}`,
+        ServerCredentials.createInsecure()
+      );
+      this.grpcServer.start();
+    } catch (error) {
+
+    }
   }
 }

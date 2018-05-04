@@ -13,12 +13,10 @@ export function registration(registry) {
       const config = resolve('config');
       const path = config.protoServicesPaths.engineService;
 
-      const instance = businessProtoPackageSelector(
+      return businessProtoPackageSelector(
         grpc.load(`${config.protoPath}/${path}`),
         protoPackage => protoPackage.engine
       ).EngineService.service;
-
-      instance.execute = promisify(instance.execute);
     },
     name: 'protoEngineService',
     persist: true

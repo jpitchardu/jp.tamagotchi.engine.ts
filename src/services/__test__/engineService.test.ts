@@ -7,10 +7,12 @@ import {
 } from '@services/engineService';
 
 import { Engine } from '@engine/engine';
+import { ICallback } from '../../utils/index';
 
 const mockFn = jest.fn;
 
 class Fake {}
+const ERROR_MSG = 'Execution Failed';
 
 describe('Given an Engine When provided with a filename', () => {
   describe(
@@ -26,19 +28,21 @@ describe('Given an Engine When provided with a filename', () => {
         registry({ type: EngineService });
       },
       resolve => {
-        let result: IExecutionResponse;
         let engineFake: Engine;
+        let callbackMock: ICallback<IExecutionResponse>;
 
-        beforeAll(async () => {
+        beforeAll(() => {
           const sut = resolve(EngineService) as EngineService;
 
           engineFake = resolve(Engine) as Engine;
 
-          result = await sut.execute({ fileName: 'dummyFile' });
+          callbackMock = mockFn();
+
+          sut.execute({ fileName: 'dummyFile' }, callbackMock);
         });
 
         test('It should be successful', () => {
-          expect(result.successful).toBe(true);
+          expect(callbackMock).toHaveBeenCalledWith(null, { successful: true });
         });
 
         test('It should have called Engine::render', () => {
@@ -55,26 +59,30 @@ describe('Given an Engine When provided with a filename', () => {
         registry({
           type: Engine,
           value: {
-            render: mockFn().mockRejectedValue('Execution fail')
+            render: mockFn().mockRejectedValue(ERROR_MSG)
           }
         });
         registry({ type: EngineService });
       },
       resolve => {
-        let failResult: IExecutionResponse;
+        let callbackMock: ICallback<IExecutionResponse>;
+
         let failEngineFake: Engine;
 
-        beforeAll(async () => {
-          failEngineFake = resolve(Engine);
+        beforeAll(() => {
           const sut = resolve(EngineService);
 
           failEngineFake = resolve(Engine);
+          callbackMock = mockFn();
 
-          failResult = await sut.execute({ fileName: 'dummyFile' });
+          sut.execute({ fileName: 'dummyFile' }, callbackMock);
         });
 
         test('It should not be successful', () => {
-          expect(failResult.successful).toBe(false);
+          expect(callbackMock).toHaveBeenCalledWith(null, {
+            message: ERROR_MSG,
+            successful: false
+          });
         });
 
         test('It should have called Engine::render', () => {

@@ -19,15 +19,27 @@ export class Server {
     );
   }
 
-  public start() {
+  public start(): IServerStartResult {
+    let result: IServerStartResult;
+
     try {
       this.grpcServer.bind(
         `${this.config.ip}:${this.config.port}`,
         ServerCredentials.createInsecure()
       );
-      this.grpcServer.start();
-    } catch (error) {
 
+      this.grpcServer.start();
+
+      result = { message: 'Server Successfully Started', successful: true };
+    } catch (err) {
+      result = { message: err, successful: false };
     }
+
+    return result;
   }
+}
+
+interface IServerStartResult {
+  message: string;
+  successful: boolean;
 }

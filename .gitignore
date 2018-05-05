@@ -68,4 +68,5 @@ typings/
 
 proto/*
 
+dist/*
 # End of https://www.gitignore.io/api/code,node

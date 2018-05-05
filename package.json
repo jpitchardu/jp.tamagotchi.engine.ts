@@ -9,7 +9,7 @@
     "format": "prettier --write {,**}/*.{ts,css}",
     "lint": "tslint 'src/**/*.ts'",
     "test": "jest",
-    "build": "webpack",
+    "start": "gulp ts && node dist/index.js | bunyan",
     "bundle": "yarn format && yarn lint && yarn test && yarn webpack"
   },
   "devDependencies": {

@@ -1,6 +1,6 @@
 import * as scope from 'fndi';
 
-import { Engine } from '@engine/engine';
+import { Engine } from '../engine';
 
 import { Fake } from './script.fake';
 

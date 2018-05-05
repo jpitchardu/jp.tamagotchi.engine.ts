@@ -4,9 +4,9 @@ import {
   EngineService,
   IExecutionRequest,
   IExecutionResponse
-} from '@services/engineService';
+} from '../engineService';
 
-import { Engine } from '@engine/engine';
+import { Engine } from '../../engine';
 import { ICallback } from '../../utils/index';
 
 const mockFn = jest.fn;

@@ -1,6 +1,6 @@
 import * as grpc from 'grpc';
 
-import { promisify } from '@utils/index';
+import { promisify } from '../utils';
 import { EngineService } from './engineService';
 
 function businessProtoPackageSelector(load, selector) {

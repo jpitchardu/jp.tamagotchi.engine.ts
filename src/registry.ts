@@ -3,9 +3,8 @@ import { Server as GrpcServer } from 'grpc';
 
 import { Server } from './server';
 
-import { engineRegistration } from '@engine/registration';
-import { EngineService } from '@services/engineService';
-import { servicesRegistration } from '@services/registry';
+import { engineRegistration } from './engine';
+import { EngineService, servicesRegistration } from './services';
 
 export function registration(env = '') {
   return registry => {

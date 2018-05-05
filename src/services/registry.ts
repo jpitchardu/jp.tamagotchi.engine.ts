@@ -11,10 +11,10 @@ export function servicesRegistration(registry) {
   registry({
     factory: resolve => {
       const config = resolve('config');
-      const path = config.protoServicesPaths.engineService;
+      const path = config.engineProtoPath;
 
       return businessProtoPackageSelector(
-        grpc.load(`${config.protoPath}/${path}`),
+        grpc.load(path),
         protoPackage => protoPackage.engine
       ).EngineService.service;
     },

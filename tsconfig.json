@@ -4,7 +4,7 @@
     "allowJs": true,
     "target": "es2015",
     "typeRoots": ["./node_modules/@types"],
-    "module": "commonjs",
+    "module": "es2015",
     "moduleResolution": "node",
     "baseUrl": "src/",
     "paths": {
@@ -14,5 +14,6 @@
       "@utils/*": ["utils/*"]
     }
   },
-  "include": ["./src/**/*", "./proto/**/*"]
+  "include": ["./src/**/*", "./src/proto/engine/**/*.proto"],
+  "exclude": ["**/__test__/*"]
 }

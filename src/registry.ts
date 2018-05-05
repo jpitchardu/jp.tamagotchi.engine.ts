@@ -13,7 +13,7 @@ export function registration(env = '') {
 
     registry({
       name: 'config',
-      value: require(env ? `./config/config.${env}` : './config/config')
+      value: require(env ? `./config/config.${env}` : './config/config').config
     });
 
     registry({

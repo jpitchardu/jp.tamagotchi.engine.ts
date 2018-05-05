@@ -19,6 +19,14 @@ describe('Given an Engine When provided with a filename', () => {
   describe('When request is valid', () => {
     let request: ExecutionRequest;
 
+    const scopeRegistration = registry => {
+      registry({
+        name: 'validate',
+        value: mockFn().mockResolvedValue({})
+      });
+      registry({ type: EngineService });
+    };
+
     beforeAll(() => {
       request = { fileName: 'dummyFile.ts' };
     });
@@ -33,11 +41,7 @@ describe('Given an Engine When provided with a filename', () => {
               render: mockFn().mockResolvedValue(new Fake())
             }
           });
-          registry({
-            name: 'validate',
-            value: mockFn().mockResolvedValue({})
-          });
-          registry({ type: EngineService });
+          scopeRegistration(registry);
         },
         resolve => {
           let engineFake: Engine;
@@ -82,11 +86,7 @@ describe('Given an Engine When provided with a filename', () => {
               render: mockFn().mockRejectedValue(ERROR_MSG)
             }
           });
-          registry({
-            name: 'validate',
-            value: mockFn().mockResolvedValue({})
-          });
-          registry({ type: EngineService });
+          scopeRegistration(registry);
         },
         resolve => {
           let callbackMock: ICallback<ExecutionResponse>;

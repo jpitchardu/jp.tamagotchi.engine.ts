@@ -1,3 +1,4 @@
+import { validate } from 'class-validator';
 import * as grpc from 'grpc';
 
 import { promisify } from '../utils';
@@ -21,5 +22,6 @@ export function servicesRegistration(registry) {
     name: 'protoEngineService',
     persist: true
   });
+  registry({ name: 'validate', value: validate });
   registry({ type: EngineService });
 }

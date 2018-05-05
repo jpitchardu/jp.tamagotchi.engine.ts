@@ -12,7 +12,8 @@
       "@engine/*": ["engine/*"],
       "@services/*": ["services/*"],
       "@utils/*": ["utils/*"]
-    }
+    },
+    "experimentalDecorators": true
   },
   "include": ["./src/**/*", "./src/proto/engine/**/*.proto"],
   "exclude": ["**/__test__/*"]

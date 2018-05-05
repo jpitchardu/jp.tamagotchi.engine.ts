@@ -1,6 +1,6 @@
 import { VM, VMScript } from 'vm2';
 
-import { promisify } from '../utils';
+import { promisify } from '@utils/index';
 
 import * as fs from 'fs';
 import * as util from 'util';

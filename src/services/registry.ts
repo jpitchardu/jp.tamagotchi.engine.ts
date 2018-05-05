@@ -1,13 +1,13 @@
 import * as grpc from 'grpc';
 
-import { promisify } from '../utils/';
+import { promisify } from '@utils/index';
 import { EngineService } from './engineService';
 
 function businessProtoPackageSelector(load, selector) {
   return selector(load.jp.tamagotchi.engine);
 }
 
-export function registration(registry) {
+export function servicesRegistration(registry) {
   registry({
     factory: resolve => {
       const config = resolve('config');

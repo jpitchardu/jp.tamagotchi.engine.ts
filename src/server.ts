@@ -4,7 +4,7 @@ import {
   ServiceDefinition
 } from 'grpc';
 
-import { IServiceDefinition } from './services';
+import { IServiceDefinition } from '@services/index';
 
 export class Server {
   private logger: any;

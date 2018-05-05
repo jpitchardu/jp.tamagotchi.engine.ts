@@ -1,3 +1,3 @@
-[submodule "proto/engine"]
-	path = proto/engine
+[submodule "src/proto/engine"]
+	path = src/proto/engine
 	url = https://github.com/pichardoJ/jp.tamagotchi.proto.business.git

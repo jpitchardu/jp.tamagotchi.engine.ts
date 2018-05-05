@@ -34,10 +34,10 @@ export function registration(env = '') {
             service: resolve('protoEngineService')
           }
         ];
-        const logFactory = resolve('logFactory');
 
         const grpcServer = new GrpcServer();
 
+        const logFactory = resolve('logFactory');
         const config = resolve('config');
 
         return new Server(grpcServer, config, services, logFactory);

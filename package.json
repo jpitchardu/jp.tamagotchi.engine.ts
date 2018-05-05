@@ -6,7 +6,7 @@
   "author": "<j.pichardo@tuta.io>",
   "license": "MIT",
   "scripts": {
-    "format": "prettier --write {,**}/*.{ts,css}",
+    "format": "prettier --write 'src{,/**}/*.{ts,css}'",
     "lint": "tslint 'src/**/*.ts'",
     "test": "jest",
     "start": "gulp ts && node dist/index.js | bunyan",
@@ -14,7 +14,6 @@
   },
   "devDependencies": {
     "@types/bunyan": "^1.8.4",
-    "@types/es6-promise": "^3.3.0",
     "@types/jest": "^22.2.3",
     "@types/node": "^7.0.5",
     "gulp": "^3.9.1",

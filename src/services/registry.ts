@@ -4,7 +4,7 @@ import { promisify } from '../utils';
 import { EngineService } from './engineService';
 
 function businessProtoPackageSelector(load, selector) {
-  return selector(load.jp.tamagotchi.engine);
+  return selector(load.jp.tamagotchi);
 }
 
 export function servicesRegistration(registry) {
@@ -16,7 +16,7 @@ export function servicesRegistration(registry) {
       return businessProtoPackageSelector(
         grpc.load(path),
         protoPackage => protoPackage.engine
-      ).EngineService.service;
+      ).ExecutionService.service;
     },
     name: 'protoEngineService',
     persist: true

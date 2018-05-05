@@ -9,7 +9,7 @@ function main(resolve) {
 
   const result = server.start();
 
-  result.successful ? log.critical(result.message) : log.info('Server started');
+  result.successful ? log.fatal(result.message) : log.info('Server started');
 }
 
 const scopedMain = scope(registration(), main)();

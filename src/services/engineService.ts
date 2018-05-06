@@ -1,3 +1,8 @@
+/**
+ * @description GRPC EngineService Implementation
+ * @author jpichardo
+ */
+
 import { Matches, ValidationError, ValidatorOptions } from 'class-validator';
 
 import { Engine } from '../engine/engine';
@@ -11,6 +16,7 @@ type validateFn = (
 
 export class EngineService {
   /**
+   * @constructor
    * @param  {Engine} privatereadonlyengine
    * @param  {validateFn} privatereadonlyvalidate
    */

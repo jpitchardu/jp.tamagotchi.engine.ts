@@ -1,3 +1,8 @@
+/**
+ * @description fndi registration function for the Engine
+ * @author jpichardo
+ */
+
 import { VM } from 'vm2';
 
 import { Engine } from './engine';

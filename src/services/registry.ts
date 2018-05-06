@@ -1,4 +1,10 @@
+/**
+ * @description fndi registration function for the services
+ * @author jpichardo
+ */
+
 import { validate } from 'class-validator';
+
 import * as grpc from 'grpc';
 
 import { promisify } from '../utils';

@@ -1,3 +1,8 @@
+/**
+ * @description Main fndi registration function
+ * @author jpichardo
+ */
+
 import * as bunyan from 'bunyan';
 import { Server as GrpcServer } from 'grpc';
 

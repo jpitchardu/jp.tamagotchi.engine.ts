@@ -1,3 +1,8 @@
+/**
+ * @description Engine that executes a sandboxed script and returns an instance of the module
+ * @author jpichardo
+ */
+
 import { VM, VMScript } from 'vm2';
 
 import { promisify } from '../utils';
@@ -7,6 +12,7 @@ import * as util from 'util';
 
 export class Engine {
   /**
+   * @constructor
    * @param  {VM} vm
    */
   constructor(private readonly vm: VM) {}

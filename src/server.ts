@@ -1,3 +1,9 @@
+
+/**
+ * @description Main server
+ * @author jpichardo
+ */
+
 import {
   Server as GrpcServer,
   ServerCredentials,
@@ -10,6 +16,7 @@ export class Server {
   private logger: any;
 
   /**
+   * @constructor
    * @param  {GrpcServer} grpcServer
    * @param  {any} config
    * @param  {Array<IServiceDefinition<any>>} services

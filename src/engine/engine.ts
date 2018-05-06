@@ -16,9 +16,9 @@ export class Engine {
    * @returns Promise
    */
   public render<T>(fileName: string): Promise<T> {
-    return promisify(fs.readFile)(fileName)
-      .then((code: string) => new VMScript(code, fileName))
-      .then(script => this.vm.run(script))
-      .then(Clazz => new Clazz() as T);
+    return promisify(fs.readFile)(fileName) // Read File
+      .then((code: string) => new VMScript(code, fileName)) // Create script
+      .then(script => this.vm.run(script)) // Run sandboxed script
+      .then(Clazz => new Clazz() as T); // Return instance
   }
 }

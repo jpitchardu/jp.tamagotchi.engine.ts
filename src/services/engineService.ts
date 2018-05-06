@@ -27,11 +27,11 @@ export class EngineService {
     request: ExecutionRequest,
     callback: ICallback<ExecutionResponse>
   ) {
-    this.validate(request)
-      .then(() => this.engine.render(request.fileName))
-      .then(res => ({ successful: true }))
-      .catch(err => ({ message: err.toString(), successful: false }))
-      .then(response => callback(null, response));
+    this.validate(request) // Validate request using  class-validator
+      .then(() => this.engine.render(request.fileName)) // Render the file
+      .then(res => ({ successful: true })) // Map to successful request
+      .catch(err => ({ message: err.toString(), successful: false })) // Map to failed request
+      .then(response => callback(null, response)); // Execute callback
   }
 }
 

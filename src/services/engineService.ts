@@ -10,11 +10,19 @@ type validateFn = (
 ) => Promise<ValidationError[]>;
 
 export class EngineService {
+  /**
+   * @param  {Engine} privatereadonlyengine
+   * @param  {validateFn} privatereadonlyvalidate
+   */
   constructor(
     private readonly engine: Engine,
     private readonly validate: validateFn
   ) {}
 
+  /**
+   * @param  {ExecutionRequest} request
+   * @param  {ICallback<ExecutionResponse>} callback
+   */
   public execute(
     request: ExecutionRequest,
     callback: ICallback<ExecutionResponse>

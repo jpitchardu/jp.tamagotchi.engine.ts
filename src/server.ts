@@ -9,18 +9,30 @@ import { IServiceDefinition } from './services';
 export class Server {
   private logger: any;
 
+  /**
+   * @param  {GrpcServer} grpcServer
+   * @param  {any} config
+   * @param  {Array<IServiceDefinition<any>>} services
+   * @param  {(className:string)=>any} logFactory
+   */
   constructor(
     private readonly grpcServer: GrpcServer,
     private readonly config: any,
     private readonly services: Array<IServiceDefinition<any>>,
     logFactory: (className: string) => any
   ) {
+    // Register Services
     this.services.forEach(service =>
       this.grpcServer.addService(service.service, service.implementation)
     );
+
+    // Instantiate Logger
     this.logger = logFactory('Server');
   }
-
+  
+  /**
+   * @returns IServerStartResult
+   */
   public start(): IServerStartResult {
     let result: IServerStartResult;
 
@@ -29,8 +41,11 @@ export class Server {
     this.logger.info(`Attempting to start server at ${hostAddress}`);
 
     try {
+
+      // Bind grpcServer
       this.grpcServer.bind(hostAddress, ServerCredentials.createInsecure());
 
+      // Start grpcServer
       this.grpcServer.start();
 
       result = { message: 'Server Successfully Started', successful: true };

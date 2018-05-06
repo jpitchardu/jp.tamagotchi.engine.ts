@@ -6,8 +6,15 @@ import * as fs from 'fs';
 import * as util from 'util';
 
 export class Engine {
-  constructor(private vm: VM) {}
+  /**
+   * @param  {VM} vm
+   */
+  constructor(private readonly vm: VM) {}
 
+  /**
+   * @param  {string} fileName
+   * @returns Promise
+   */
   public render<T>(fileName: string): Promise<T> {
     return promisify(fs.readFile)(fileName)
       .then((code: string) => new VMScript(code, fileName))

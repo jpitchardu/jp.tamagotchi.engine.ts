@@ -11,7 +11,11 @@ import { Server } from './server';
 import { engineRegistration } from './engine';
 import { EngineService, servicesRegistration } from './services';
 
-export function registration(env = '') {
+/**
+ * @param {string} env - Environment for configuration file
+ * @returns {function} a fndi registration function
+ */
+export function registration(env = ''): (registry: any) => void {
   return registry => {
     engineRegistration(registry);
     servicesRegistration(registry);
